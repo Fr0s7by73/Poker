@@ -1,3 +1,12 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -5,9 +14,6 @@
 *.jar
 *.war
 *.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
 
 # Eclipse
 .classpath
@@ -30,8 +36,15 @@ target/
 !lib/**
 
 # Compiled Files
-*.class
 bin/
 build/
 /bin1/
 java/build/**
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*

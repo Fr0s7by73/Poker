@@ -24,7 +24,7 @@ public class Card implements Comparable<Card> {
 	public void setValueIndex(int valueIndex) {
 		this.valueIndex = valueIndex;
 	}
-	
+
 	public String getSuit() {
 		return suit;
 	}
@@ -61,8 +61,8 @@ public class Card implements Comparable<Card> {
 	public int compareTo(Card o) {
 		if (this.valueIndex != o.valueIndex) {
 			return this.valueIndex - o.valueIndex;
-		} 
-		return this.suitIndex - o.suitIndex;		 
+		}
+		return this.suitIndex - o.suitIndex;
 	}
 
 	@Override
@@ -81,7 +81,5 @@ public class Card implements Comparable<Card> {
 		Card other = (Card) obj;
 		return suitIndex == other.suitIndex && valueIndex == other.valueIndex;
 	}
-
-
 
 }

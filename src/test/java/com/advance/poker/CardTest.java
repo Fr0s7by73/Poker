@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.advance.poker.model.Card;
 
-public class CardTester {
+public class CardTest {
 	@Test
 	public void sortHand() {
 		List<Card> hand = new ArrayList<>();

@@ -7,10 +7,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.advance.poker.controller.PokerHandEvaluator;
+import com.advance.poker.controller.CardGame;
+import com.advance.poker.controller.FiveCardDrawPoker;
 import com.advance.poker.model.Card;
 
-public class PokerHandEvaluatorTest {
+public class FiveCardDrawPokerHandEvaluatorTest {
 
 	@Test
 	public void identifyPair() {
@@ -21,8 +22,10 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(8, "8", "HEARTS", 1, ""));
 		hand.add(new Card(2, "2", "HEARTS", 1, ""));
 		hand.add(new Card(11, "Jack", "HEARTS", 1, ""));
-
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Pair", handRank);
 	}
 
@@ -35,7 +38,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(5, "5", "DIAMONDS", 2, ""));
 		hand.add(new Card(11, "Jack", "HEARTS", 1, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Two Pair", handRank);
 	}
 
@@ -48,7 +53,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(4, "4", "DIAMONDS", 2, ""));
 		hand.add(new Card(11, "Jack", "HEARTS", 1, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Three of a Kind", handRank);
 	}
 
@@ -61,7 +68,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(11, "Jack", "DIAMONDS", 2, ""));
 		hand.add(new Card(9, "9", "HEARTS", 1, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Straight", handRank);
 	}
 
@@ -74,7 +83,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(11, "Jack", "HEARTS", 1, ""));
 		hand.add(new Card(9, "9", "HEARTS", 1, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Flush", handRank);
 	}
 
@@ -87,7 +98,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(8, "8", "CLUBS", 3, ""));
 		hand.add(new Card(4, "4", "CLUBS", 3, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Full House", handRank);
 	}
 
@@ -100,7 +113,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(4, "4", "SPADES", 4, ""));
 		hand.add(new Card(4, "4", "CLUBS", 3, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Four of a Kind", handRank);
 	}
 
@@ -113,7 +128,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(12, "Queen", "HEARTS", 1, ""));
 		hand.add(new Card(11, "Jack", "HEARTS", 1, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("Straight Flush", handRank);
 	}
 
@@ -126,7 +143,9 @@ public class PokerHandEvaluatorTest {
 		hand.add(new Card(2, "2", "HEARTS", 1, ""));
 		hand.add(new Card(10, "10", "HEARTS", 1, ""));
 
-		String handRank = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		CardGame cg = new FiveCardDrawPoker(hand);
+		String handRank = cg.evaluateHand();
+		
 		assertEquals("High card with Jd", handRank);
 	}
 }

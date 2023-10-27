@@ -2,38 +2,42 @@ package com.advance.poker.view;
 
 import java.util.List;
 
-import com.advance.poker.controller.CardDealer;
-import com.advance.poker.controller.CardShuffler;
-import com.advance.poker.controller.DeckBuilder;
-import com.advance.poker.controller.PokerHandEvaluator;
+import com.advance.poker.controller.CardGame;
+import com.advance.poker.controller.FiveCardDrawPoker;
 import com.advance.poker.model.Card;
 
-/**
- * Hello world!
- *
- */
 public class PokerMain {
-	
+
 	public static void main(String[] args) {
-		List<Card> deck = DeckBuilder.buildDeck();
+		CardGame game = new FiveCardDrawPoker();
 		
 		// Let's shuffle three times:
 		for (int i = 0; i < 3; i++) {
 			System.out.print("Shuffling ... ");
-			CardShuffler.shuffleCards(deck);
+			game.shuffleDeck();
+			sleep(750);
 		}
-		
+
 		// Draw cards
-		List<Card> hand = CardDealer.dealHand(deck);
-		
+		List<Card> hand = game.dealHand();
+
 		// Display hand
 		System.out.print(System.lineSeparator() + "Your hand: ");
 		for (Card card : hand) {
 			System.out.print(card.getDisplayValue() + " ");
 		}
-		
+
 		// Display highest ranked poker hand
-		String highestRankedHand = PokerHandEvaluator.findHighestRankedPokerHand(hand);
+		String highestRankedHand = game.evaluateHand();
 		System.out.println(System.lineSeparator() + "You have: " + highestRankedHand);
+	}
+
+	private static void sleep(long milliseconds) {
+		try {
+			Thread.sleep(milliseconds);
+		} catch (InterruptedException e) { 
+			e.printStackTrace();
+			Thread.currentThread().interrupt();
+		}
 	}
 }

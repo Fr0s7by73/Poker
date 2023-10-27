@@ -1,4 +1,4 @@
-package com.advance.poker.controller;
+package com.advance.poker.controller.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,21 @@ import java.util.List;
 import com.advance.poker.model.Card;
 
 public class DeckBuilder {
+	private DeckBuilder() {}
+
 	private enum SuitTypes {
 		HEARTS, DIAMONDS, CLUBS, SPADES
 	}
 
-
+	/**
+	 * Returns a full 52 card deck
+	 * 
+	 * @return List<Card>
+	 */
 	public static List<Card> buildDeck() {
 		List<Card> deck = new ArrayList<>();
+
+		// Cycle through each suit type, adding one of each card to the deck.
 		for (int i = 0; i < SuitTypes.values().length; i++) {
 			SuitTypes currentSuit = SuitTypes.values()[i];
 			int suitIndex = buildSuitIndex(currentSuit);
@@ -33,6 +41,13 @@ public class DeckBuilder {
 		return deck;
 	}
 
+	/**
+	 * Returns an index value for each suit, useful for comparing and sorting a list
+	 * of cards
+	 * 
+	 * @param currentSuit
+	 * @return index value for the suit
+	 */
 	private static int buildSuitIndex(SuitTypes currentSuit) {
 		switch (currentSuit) {
 		case HEARTS:
@@ -47,6 +62,13 @@ public class DeckBuilder {
 		return 0;
 	}
 
+	/**
+	 * Returns a String for how to display each card
+	 * 
+	 * @param cardValue
+	 * @param currentSuit
+	 * @return display name
+	 */
 	private static String buildDisplayName(String cardValue, SuitTypes currentSuit) {
 		switch (currentSuit) {
 		case HEARTS:

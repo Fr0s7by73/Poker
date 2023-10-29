@@ -7,21 +7,21 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
-import com.advance.poker.controller.CardGame;
+import com.advance.poker.controller.PokerGame;
 import com.advance.poker.controller.FiveCardDrawPoker;
 import com.advance.poker.model.Card;
 
 public class DeckBuilderTest {
 	@Test
 	public void isDeck52Cards() {
-		CardGame cg = new FiveCardDrawPoker();
+		PokerGame cg = new FiveCardDrawPoker();
 
 		assertEquals(52, cg.getDeck().size());
 	}
 
 	@Test
 	public void testForDuplicates() {
-		CardGame cg = new FiveCardDrawPoker();
+		PokerGame cg = new FiveCardDrawPoker();
 
 		boolean duplicateCardFound = false;
 
@@ -39,7 +39,7 @@ public class DeckBuilderTest {
 
 	@Test
 	public void areAllPropertiesGenerated() {
-		CardGame cg = new FiveCardDrawPoker();
+		PokerGame cg = new FiveCardDrawPoker();
 
 		// suitIndex -> cardValueIndex -> Card
 		HashMap<Integer, HashMap<Integer, Card>> deckMap = new HashMap<>();

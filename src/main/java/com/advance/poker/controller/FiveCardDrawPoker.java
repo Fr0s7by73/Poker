@@ -6,7 +6,7 @@ import java.util.List;
 import com.advance.poker.controller.utils.PokerHandEvaluator;
 import com.advance.poker.model.Card;
 
-public class FiveCardDrawPoker extends CardGame {
+public class FiveCardDrawPoker extends PokerGame {
 
 	public FiveCardDrawPoker() {
 		super();
@@ -19,6 +19,7 @@ public class FiveCardDrawPoker extends CardGame {
 	@Override
 	public List<Card> dealHand() {
 		hand = new ArrayList<>();
+		// Make sure there are enough cards in the deck to deal the hand.
 		if (deck.size() >= 5) {
 			while (hand.size() < 5) {
 				// Add top card to hand

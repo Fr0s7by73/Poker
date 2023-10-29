@@ -6,16 +6,16 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.advance.poker.controller.CardGame;
 import com.advance.poker.controller.FiveCardDrawPoker;
+import com.advance.poker.controller.PokerGame;
 import com.advance.poker.model.Card;
 
 public class CardShufflerTest {
 	@Test
 	public void testForDuplicates() {
-		CardGame cg = new FiveCardDrawPoker();
-		cg.shuffleDeck();
+		PokerGame cg = new FiveCardDrawPoker();
 
+		cg.shuffleDeck();
 		boolean duplicateCardFound = false;
 
 		while (cg.getDeck().size() > 0) {
@@ -32,7 +32,7 @@ public class CardShufflerTest {
 
 	@Test
 	public void sameCardsInTheDeck() {
-		CardGame cg = new FiveCardDrawPoker();
+		PokerGame cg = new FiveCardDrawPoker();
 		List<Card> deckCopy = List.copyOf(cg.getDeck());
 
 		cg.shuffleDeck();
@@ -50,7 +50,7 @@ public class CardShufflerTest {
 
 	@Test
 	public void isSizeOfDeckStillSame() {
-		CardGame cg = new FiveCardDrawPoker();
+		PokerGame cg = new FiveCardDrawPoker();
 		List<Card> deckCopy = List.copyOf(cg.getDeck());
 
 		cg.shuffleDeck();
@@ -60,7 +60,7 @@ public class CardShufflerTest {
 
 	@Test
 	public void isCardsInDifferentOrder() {
-		CardGame cg = new FiveCardDrawPoker();
+		PokerGame cg = new FiveCardDrawPoker();
 		List<Card> deckCopy = List.copyOf(cg.getDeck());
 
 		cg.shuffleDeck();

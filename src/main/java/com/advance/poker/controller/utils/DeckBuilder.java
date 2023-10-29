@@ -6,11 +6,11 @@ import java.util.List;
 import com.advance.poker.model.Card;
 
 public class DeckBuilder {
-	private DeckBuilder() {}
-
 	private enum SuitTypes {
 		HEARTS, DIAMONDS, CLUBS, SPADES
 	}
+	
+	private DeckBuilder() {}	
 
 	/**
 	 * Returns a full 52 card deck

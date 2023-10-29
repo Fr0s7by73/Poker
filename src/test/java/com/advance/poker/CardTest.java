@@ -21,6 +21,7 @@ public class CardTest {
 		hand.add(new Card(2, "2", "CLUBS", 3, ""));
 
 		Collections.sort(hand);
+		
 		assertTrue(hand.get(0).getValueIndex() == 2 && hand.get(1).getValueIndex() == 4
 				&& hand.get(2).getValueIndex() == 4 && hand.get(3).getValueIndex() == 8
 				&& hand.get(4).getValueIndex() == 11);
